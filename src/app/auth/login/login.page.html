@@ -1,0 +1,68 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+</ion-content> -->
+<!-- -->
+<ion-content padding class="animated fadeIn login auth-page">
+    <div class="login-content">
+  
+      <!-- Logo -->
+      <div padding-horizontal text-center class="animated fadeInDown">
+        <div class="logo"></div>
+        <h2 ion-text class="text-primary">
+          <strong>PUNCH IT</strong>
+        </h2>
+      </div>
+  
+      <!-- Login form -->
+      <form class="list-form" (ngSubmit)="loginUser()" [formGroup]="loginForms" name="loginForm">
+        <ion-item>
+          <ion-label floating>
+            <ion-icon name="mail" item-start class="text-primary"></ion-icon>
+            Email
+          </ion-label>
+          <ion-input type="email" formControlName="email"></ion-input>
+        </ion-item>
+        <div class="o-Form-errors" *ngIf="formSubmitted && f.email.errors">
+          <p *ngIf="f.email.errors.required">Email is required.</p>
+        </div>
+  
+        <ion-item>
+          <ion-label floating>
+            <ion-icon name="lock" item-start class="text-primary"></ion-icon>
+            Password
+          </ion-label>
+          <ion-input type="password" formControlName="password"></ion-input>
+        </ion-item>
+        <div class="o-Form-errors" *ngIf="formSubmitted && f.password.errors">
+          <p *ngIf="f.password.errors.required">Password is required.</p>
+        </div>
+      </form>
+  
+      <p text-right ion-text color="secondary" tappable (click)="forgotPass()"><strong>Forgot Password?</strong></p>
+  
+      <div>
+        <ion-button expand="block" (click)="loginUser()">
+            <ion-icon name="log-in"></ion-icon>
+            SIGN IN
+        </ion-button>
+      </div>
+  
+  
+      <!-- Other links -->
+      <div text-center margin-top>
+        <ion-note color="danger" *ngIf="formSubmitted && errorMessage">
+            {{errorMessage}}
+        </ion-note>
+      </div>
+      <div text-center margin-top>
+        <span ion-text color="secondary" tappable (click)="register()">New here? <strong>Sign up</strong></span>
+      </div>
+  
+    </div>
+  </ion-content>

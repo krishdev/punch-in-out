@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Punch It
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card class="welcome-card">
+      <ion-card-header>
+        <ion-card-subtitle>Today</ion-card-subtitle>
+        <ion-card-title>{{todaysDate}} <span class="u-Txt-small">{{currentTime}}</span></ion-card-title>
+      </ion-card-header>
+      <!-- <ion-card-content>
+        <p>Now that your app has been created, you'll want to start building out features and components. Check out some of the resources below for next steps.</p>
+      </ion-card-content> -->
+    </ion-card>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6 class="u-Txt-right">
+          <ion-button shape="round" class="o-Btn-solid u-Ma-r-1" (click)="punchItEvent('in')" color="tertiary">In</ion-button>
+        </ion-col>
+        <ion-col col-6>
+          <ion-button shape="round" class="o-Btn-solid" (click)="punchItEvent('out')" color="success">Out</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-list lines="none">
+      <ion-list-header>
+        <ion-label>Remaining Hours: {{remainingHrsToday}}</ion-label>
+      </ion-list-header>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12"><ion-label> {{logs.date}} </ion-label></ion-col>
+          <ion-col size="12" *ngFor="let type of logs.action">
+              <ion-icon [name]="type.action ? 'log-in' : 'log-out'" color="medium"></ion-icon>
+              <ion-label> Time {{type.action ? 'In' : 'Out'}} {{type.timeStamp | date : "h:mm a"}}</ion-label>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <!-- <ion-item>
+        <ion-icon name="log-out" color="medium"></ion-icon>
+        <ion-label> Time Out 12:00 PM</ion-label>
+      </ion-item> -->
+    </ion-list>
+</ion-content>

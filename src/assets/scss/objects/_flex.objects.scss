@@ -1,0 +1,11 @@
+$o-name: '.o-Flex';
+
+#{$o-name} {
+    display: flex;
+    display: -webkit-box;
+}
+
+#{$o-name}--center {
+    align-items: center;
+    justify-content: center;
+}
